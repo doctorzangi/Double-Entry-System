@@ -1,12 +1,31 @@
-import React from 'react';
+import { useEffect } from "react";
+import React, {useState} from 'react';
+import { customerList } from "services/customerService";
+
 
 const CustomerList = () => {
-  const customers = [
-    { id: 1, name: 'John Doe', contactInfo: 'john@example.com', creditedAmount: 100, debitedAmount: 50 },
-    { id: 2, name: 'Jane Smith', contactInfo: 'jane@example.com', creditedAmount: 150, debitedAmount: 75 },
-    { id: 3, name: 'Alice Johnson', contactInfo: 'alice@example.com', creditedAmount: 200, debitedAmount: 100 },
-  ];
-
+    const [customers, setCustomers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
+  
+    useEffect(() => {
+      // setIsLoading(true);
+      // setError(null);
+  
+      // console.log(fetchAllBooks())
+  
+      customerList()
+        .then(fetchedCustomers => {
+          console.log(fetchedCustomers)
+          setCustomers(fetchedCustomers);
+        })
+        .catch(fetchError => {
+          setError(fetchError);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, []);
   return (
     <div className='mt-9 p-5 pr-10 pl-10 z-5 relative flex rounded-2xl bg-white bg-clip-border dark:bg-navy-800 dark:text-white dark:shadow-none flex-row items-center justify-between h-auto'>
       <table className="min-w-full divide-y rounded-xl divide-gray-200">
@@ -20,6 +39,9 @@ const CustomerList = () => {
             </th>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               Contact Info
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Address
             </th>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               Credited Amount
@@ -36,22 +58,25 @@ const CustomerList = () => {
           {customers.map(customer => (
             <tr key={customer.id}>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-700">{customer.id}</div>
+                <div className="text-sm text-gray-700">{customer.customer.customer_code}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-700">{customer.name}</div>
+                <div className="text-sm font-medium text-gray-700">{customer.customer.name}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-700">{customer.contactInfo}</div>
+                <div className="text-sm text-gray-700">{customer.customer.contact_information}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-700">{customer.creditedAmount}</div>
+                <div className="text-sm text-gray-700">{customer.customer.address}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-700">{customer.debitedAmount}</div>
+                <div className="text-sm text-gray-700">{customer.total_credit}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-700">{customer.creditedAmount - customer.debitedAmount}</div>
+                <div className="text-sm text-gray-700">{customer.total_debit}</div>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap">
+                <div className="text-sm text-gray-700">{customer.total_credit - customer.total_debit}</div>
               </td>
             </tr>
           ))}

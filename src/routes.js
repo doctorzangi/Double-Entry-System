@@ -19,6 +19,7 @@ import {
   MdPerson,
   MdLock,
 } from "react-icons/md";
+import Details from "views/admin/details";
 
 const routes = [
   {
@@ -49,6 +50,13 @@ const routes = [
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
+  },
+  {
+    name: "Details",
+    layout: "/admin",
+    path: "details",
+    icon: <MdPerson className="h-6 w-6" />,
+    component: <Details />,
   },
   {
     name: "Accounts",
