@@ -36,4 +36,19 @@ export const addCustomer = async (customer) => {
         throw error;
     }
 }
-  
+
+export const deleteCustomer = async (id) => {
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/customers/${id}/delete/`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log("Error Deleting Customer", error);
+        throw error;
+    }
+}

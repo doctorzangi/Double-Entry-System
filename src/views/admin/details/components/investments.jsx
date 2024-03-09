@@ -16,8 +16,7 @@ const Investment = () => {
   const totalAmount = investments.reduce((total, investment) => total + investment.amount, 0);
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Investment</h2>
+    <div className='mt-9 p-5 pr-10 pl-10 z-5 relative flex rounded-2xl bg-white bg-clip-border dark:bg-navy-800 dark:text-white dark:shadow-none flex-row items-center justify-between h-auto'>
       <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
