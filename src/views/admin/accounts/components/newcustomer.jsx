@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { addCustomer } from 'services/customerService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NewCustomer = () => {
   const [name, setName] = useState('');
@@ -21,6 +23,7 @@ const NewCustomer = () => {
         // Check if required fields are not empty
         if (!customerData.name || !customerData.customer_code) {
             console.error('Name and Customer Code are required fields.');
+            toast.error('Name and Customer Code are required fields.'); // Display error toast
             return;
         }
 
@@ -28,6 +31,7 @@ const NewCustomer = () => {
         const response = await addCustomer(customerData);
 
         console.log('Customer added successfully:', response);
+        toast.success('Customer added successfully.'); // Display success toast
         // Clear form fields after successful submission
         setName('');
         setContactInformation('');
@@ -35,6 +39,7 @@ const NewCustomer = () => {
         setCustomerCode('');
     } catch (error) {
         console.error('Error adding customer:', error);
+        toast.error('Error adding customer. Please try again.'); // Display error toast
     }
 };
 
@@ -64,6 +69,7 @@ const NewCustomer = () => {
         </div>
         <button type="submit" className="bg-navy-800 text-white w-full py-2 px-4 rounded-full">Submit</button>
       </form>
+      <ToastContainer /> {/* Add ToastContainer to render the toasts */}
     </div>
   );
 };

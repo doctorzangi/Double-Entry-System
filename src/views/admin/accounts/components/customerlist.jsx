@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import toastify CSS
 import React, { useState } from 'react';
 import { customerList, deleteCustomer } from "services/customerService";
 
@@ -31,6 +33,7 @@ const CustomerList = () => {
         const updatedCustomers = await customerList();
         setCustomers(updatedCustomers);
         console.log("Customer deleted successfully");
+        toast.success('Deleted Successfully!'); // Use toast.success for success message
     } catch (error) {
         console.log("Error deleting customer", error);
     }
@@ -100,6 +103,7 @@ const CustomerList = () => {
           </tbody>
         </table>
       </div>
+      <ToastContainer /> {/* Add ToastContainer to render the toasts */}
     </div>
   );
 };
