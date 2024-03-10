@@ -27,11 +27,11 @@ const Wallet = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-3xl font-semibold mb-4">My Wallet</h2>
-      <div className="bg-gray-100 p-4 rounded-lg mb-4">
+      <div className="bg-white p-4 rounded-lg mb-4">
         <h3 className="text-lg font-semibold mb-2">Wallet Balance</h3>
         <p className="text-2xl font-bold">${walletBalance}</p>
       </div>
-      <div className="bg-gray-100 p-4 rounded-lg">
+      <div className="bg-white p-4 rounded-lg">
         <h3 className="text-lg font-semibold mb-2">Transaction History</h3>
         <div className="overflow-x-auto">
           <table className="w-full">

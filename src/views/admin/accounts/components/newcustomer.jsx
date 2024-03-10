@@ -54,7 +54,7 @@ const NewCustomer = () => {
           </div>
           <div className="w-1/2 ml-2">
             <label htmlFor="contactInformation" className="block text-sm font-medium text-gray-700">Contact Information</label>
-            <input type="text" id="contactInformation" value={contactInformation} onChange={(e) => setContactInformation(e.target.value)} className="mt-1 p-2 block w-full border focus:outline-none border-gray-300 rounded-md focus:ring-0 focus:border-gray-300 sm:text-sm" />
+            <input type="number" id="contactInformation" value={contactInformation} onChange={(e) => setContactInformation(e.target.value)} className="mt-1 p-2 block w-full border focus:outline-none border-gray-300 rounded-md focus:ring-0 focus:border-gray-300 sm:text-sm" />
           </div>
         </div>
         <div className="flex mb-4">
