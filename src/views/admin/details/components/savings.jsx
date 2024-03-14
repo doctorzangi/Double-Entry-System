@@ -18,6 +18,9 @@ const Savings = () => {
     if (newSavedAmount > goal.targetAmount) {
       toast.error(`Can't add more than target amount!`);
       return;
+    } else if (amountToAdd <= 0) {
+      toast.error(`Can't add  a negative or zero value!`);
+      return;
     }
 
     setGoals(goals.map(goal => {
@@ -39,6 +42,9 @@ const Savings = () => {
 
     if (newSavedAmount < 0) {
       toast.error(`Can't remove more than saved amount!`);
+      return;
+    } else if (amountToAdd <= 0) {
+      toast.error(`Can't remove a negative or zero value`);
       return;
     }
 
