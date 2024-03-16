@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Modal from "./modal";
+import CIHModal from "./cihmodal";
 
 const Khata = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [buttonClicked, setButtonClicked] = useState("");
+    const [isCIHModalOpen, setIsCIHModalOpen] = useState(false);
+    const [cashInHand, setCashInHand] = useState("");
 
     const openModal = (type) => {
         setIsModalOpen(true);
@@ -21,6 +24,18 @@ const Khata = () => {
 
     const handleDebit = () => {
         openModal("debit");
+    };
+
+    const openCIHModal = () => {
+        setIsCIHModalOpen(true);
+    };
+
+    const closeCIHModal = () => {
+        setIsCIHModalOpen(false);
+    };
+
+    const handleCashInHand = (cash) => {
+        setCashInHand(cash);
     };
 
     const transactions =
@@ -73,23 +88,23 @@ const Khata = () => {
 
     return (
         <div className="mt-10">
-            <div className="flex justify-between bg-white rounded-xl items-center p-3">
-                <div className="flex">
+            <div className="flex flex-col sm:flex-row justify-between bg-white rounded-xl items-center p-3">
+                <div className="flex mb-2 sm:mb-0">
                     <button onClick={handleDebit} className="bg-red-500 text-white rounded-xl p-2 mr-2">
                         Debit
                     </button>
                     <button onClick={handleCredit} className="bg-green-500 text-white rounded-xl p-2">Credit</button>
                 </div>
-                <div className="flex">
-                    <div className="flex items-center">
-                        <button className="bg-gray-900 text-white rounded-xl p-2 mr-2">
+                <div className="flex flex-col sm:flex-row">
+                    <div className="flex items-center mb-2 sm:mb-2">
+                        <button className="bg-gray-900 text-white rounded-xl p-2 mr-2" onClick={openCIHModal}>
                             Cash in hand
                         </button>
                         {/* Button ek input window open kary ga. Te fer ody wich input kar k asi cash in hand show karna a. */}
-                        <div className="bg-gray-600 rounded-xl p-2">10,000pkr</div>
+                        <div className="bg-gray-600 rounded-xl p-2">{cashInHand} PKR</div>
                     </div>
                     <div className="ml-4">
-                        <select className="bg-white border border-gray-300 rounded-xl p-2 focus:outline-none">
+                        <select className="bg-white border w-44 border-gray-300 rounded-xl p-2 focus:outline-none">
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
@@ -167,7 +182,16 @@ const Khata = () => {
                     </tbody>
                 </table>
             </div>
-            <Modal isOpen={isModalOpen} onClose={closeModal} buttonClicked={buttonClicked} />
+            <Modal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                buttonClicked={buttonClicked}
+            />
+            <CIHModal
+                isOpen={isCIHModalOpen}
+                onClose={closeCIHModal}
+                handleInputChange={handleCashInHand}
+            />
         </div>
     );
 };
