@@ -4,7 +4,7 @@ import TotalSpent from "views/admin/default/components/TotalSpent";
 import PieChartCard from "views/admin/default/components/PieChartCard";
 import { IoMdHome } from "react-icons/io";
 import { IoDocuments } from "react-icons/io5";
-import { MdBarChart, MdDashboard } from "react-icons/md";
+import { MdBarChart, MdDashboard, MdHome, MdPersonAdd, MdBook, MdMoney, MdAdd, MdAdUnits } from "react-icons/md";
 
 import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
 
@@ -23,34 +23,40 @@ const Dashboard = () => {
 
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Earnings"}
-          subtitle={"$340.5"}
+          icon={<MdPersonAdd className="h-7 w-7" />}
+          title={"Customers"}
+          subtitle={"New Customers"}
+          linkTo={"/admin/accounts"}
         />
         <Widget
-          icon={<IoDocuments className="h-6 w-6" />}
-          title={"Spend this month"}
-          subtitle={"$642.39"}
+          icon={<MdMoney className="h-6 w-6" />}
+          title={"Loan Book"}
+          subtitle={"Add Loan"}
+          linkTo={""}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Sales"}
-          subtitle={"$574.34"}
+          icon={<MdAdUnits className="h-7 w-7" />}
+          title={"Entry Book"}
+          subtitle={"New Entry"}
+          linkTo={""}
         />
         <Widget
-          icon={<MdDashboard className="h-6 w-6" />}
-          title={"Your Balance"}
-          subtitle={"$1,000"}
+          icon={<MdBook className="h-6 w-6" />}
+          title={"Daily Book"}
+          subtitle={"Today's Entries"}
+          linkTo={""}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"New Tasks"}
-          subtitle={"145"}
+          icon={<MdBook className="h-7 w-7" />}
+          title={"Monthly Books"}
+          subtitle={"Monthly Entries"}
+          linkTo={""}
         />
         <Widget
-          icon={<IoMdHome className="h-6 w-6" />}
-          title={"Total Projects"}
-          subtitle={"$2433"}
+          icon={<MdAdd className="h-6 w-6" />}
+          title={"Bill Book"}
+          subtitle={"New Bill"}
+          linkTo={""}
         />
       </div>
 

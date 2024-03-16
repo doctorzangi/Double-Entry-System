@@ -1,11 +1,11 @@
 import React from "react";
 
 // Admin Imports
-// import MainDashboard from "views/admin/default";
-// import NFTMarketplace from "views/admin/marketplace";
-// import Profile from "views/admin/profile";
-// import DataTables from "views/admin/tables";
-// import RTLDefault from "views/rtl/default";
+import MainDashboard from "views/admin/default";
+import NFTMarketplace from "views/admin/marketplace";
+import Profile from "views/admin/profile";
+import DataTables from "views/admin/tables";
+import RTLDefault from "views/rtl/default";
 import Accounts from "views/admin/accounts";
 
 // Auth Imports
@@ -13,23 +13,23 @@ import SignIn from "views/auth/SignIn";
 
 // Icon Imports
 import {
-  // MdHome,
-  // MdOutlineShoppingCart,
-  // MdBarChart,
+  MdHome,
+  MdOutlineShoppingCart,
+  MdBarChart,
   MdPerson,
   MdLock,
-  // MdLockOpen,
+  MdLockOpen,
 } from "react-icons/md";
 import Details from "views/admin/details";
 
 const routes = [
-  // {
-  //   name: "Main Dashboard",
-  //   layout: "/admin",
-  //   path: "default",
-  //   icon: <MdHome className="h-6 w-6" />,
-  //   component: <MainDashboard />,
-  // },
+  {
+    name: "Main Dashboard",
+    layout: "/admin",
+    path: "default",
+    icon: <MdHome className="h-6 w-6" />,
+    component: <MainDashboard />,
+  },
   // {
   //   name: "NFT Marketplace",
   //   layout: "/admin",

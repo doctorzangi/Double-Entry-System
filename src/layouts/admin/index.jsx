@@ -9,7 +9,7 @@ export default function Admin(props) {
   const { ...rest } = props;
   const location = useLocation();
   const [open, setOpen] = React.useState(true);
-  const [currentRoute, setCurrentRoute] = React.useState("accounts");
+  const [currentRoute, setCurrentRoute] = React.useState("default");
 
   React.useEffect(() => {
     window.addEventListener("resize", () =>
@@ -21,7 +21,7 @@ export default function Admin(props) {
   }, [location.pathname]);
 
   const getActiveRoute = (routes) => {
-    let activeRoute = "accounts";
+    let activeRoute = "default";
     for (let i = 0; i < routes.length; i++) {
       if (
         window.location.href.indexOf(
@@ -70,7 +70,7 @@ export default function Admin(props) {
           <div className="h-full">
             <Navbar
               onOpenSidenav={() => setOpen(true)}
-              logoText={"Horizon UI Tailwind React"}
+              logoText={"Lab Book"}
               brandText={currentRoute}
               secondary={getActiveNavbar(routes)}
               {...rest}
@@ -81,7 +81,7 @@ export default function Admin(props) {
 
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/accounts" replace />}
+                  element={<Navigate to="/admin/default" replace />}
                 />
               </Routes>
             </div>
