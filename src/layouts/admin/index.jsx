@@ -4,6 +4,7 @@ import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
 import routes from "routes.js";
+import routing from "routing.js"; // Import the routing component
 
 export default function Admin(props) {
   const { ...rest } = props;
@@ -16,8 +17,9 @@ export default function Admin(props) {
       window.innerWidth < 1200 ? setOpen(false) : setOpen(true)
     );
   }, []);
+
   React.useEffect(() => {
-    getActiveRoute(routes);
+    getActiveRoute([...routes, ...routing]); // Combine routes and routing configurations
   }, [location.pathname]);
 
   const getActiveRoute = (routes) => {
@@ -33,6 +35,7 @@ export default function Admin(props) {
     }
     return activeRoute;
   };
+
   const getActiveNavbar = (routes) => {
     let activeNavbar = false;
     for (let i = 0; i < routes.length; i++) {
@@ -44,8 +47,21 @@ export default function Admin(props) {
     }
     return activeNavbar;
   };
+
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
+      if (prop.layout === "/admin") {
+        return (
+          <Route path={`/${prop.path}`} element={prop.component} key={key} />
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+
+  const getAdditionalRoutes = (routing) => {
+    return routing.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
@@ -72,13 +88,13 @@ export default function Admin(props) {
               onOpenSidenav={() => setOpen(true)}
               logoText={"Lab Book"}
               brandText={currentRoute}
-              secondary={getActiveNavbar(routes)}
+              secondary={getActiveNavbar([...routes, ...routing])}
               {...rest}
             />
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
                 {getRoutes(routes)}
-
+                {getAdditionalRoutes(routing)}
                 <Route
                   path="/"
                   element={<Navigate to="/admin/default" replace />}

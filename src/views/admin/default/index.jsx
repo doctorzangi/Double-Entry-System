@@ -26,13 +26,13 @@ const Dashboard = () => {
           icon={<MdPersonAdd className="h-7 w-7" />}
           title={"Customers"}
           subtitle={"New Customers"}
-          linkTo={"/admin/accounts"}
+          linkTo={"/admin/accounts/newcustomer"}
         />
         <Widget
           icon={<MdMoney className="h-6 w-6" />}
           title={"Loan Book"}
           subtitle={"Add Loan"}
-          linkTo={""}
+          linkTo={"/admin/details/loans"}
         />
         <Widget
           icon={<MdAdUnits className="h-7 w-7" />}

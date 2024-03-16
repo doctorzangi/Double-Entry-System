@@ -7,6 +7,7 @@ import AuthLayout from "layouts/auth";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NewCustomer from "views/admin/accounts/components/newcustomer";
 
 const App = () => {
   return (
