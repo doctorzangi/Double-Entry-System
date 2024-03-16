@@ -9,9 +9,9 @@ const TransactionHistory = () => {
   ];
 
   return (
-    <div className='mt-9 p-5 pr-10 pl-10 z-5 relative flex rounded-2xl bg-white bg-clip-border dark:bg-navy-800 dark:text-white dark:shadow-none flex-row items-center justify-between h-auto'>
+    <div className='mt-9 p-3 z-5 overflow-x-auto relative flex rounded-2xl bg-white bg-clip-border dark:bg-navy-800 dark:text-white dark:shadow-none flex-row items-center justify-between h-auto'>
       <table className="min-w-full divide-y rounded-xl divide-gray-200">
-        <thead className="bg-gray-900 dark:bg-gray-900">
+        <thead className="bg-gray-900">
           <tr>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               ID

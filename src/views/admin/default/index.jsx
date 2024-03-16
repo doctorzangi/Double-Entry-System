@@ -2,9 +2,7 @@ import MiniCalendar from "components/calendar/MiniCalendar";
 import WeeklyRevenue from "views/admin/default/components/WeeklyRevenue";
 import TotalSpent from "views/admin/default/components/TotalSpent";
 import PieChartCard from "views/admin/default/components/PieChartCard";
-import { IoMdHome } from "react-icons/io";
-import { IoDocuments } from "react-icons/io5";
-import { MdBarChart, MdDashboard, MdHome, MdPersonAdd, MdBook, MdMoney, MdAdd, MdAdUnits } from "react-icons/md";
+import { MdPersonAdd, MdBook, MdMoney, MdAdd, MdAdUnits } from "react-icons/md";
 
 import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
 
@@ -26,31 +24,31 @@ const Dashboard = () => {
           icon={<MdPersonAdd className="h-7 w-7" />}
           title={"Customers"}
           subtitle={"New Customers"}
-          linkTo={"/admin/accounts/newcustomer"}
+          linkTo={"/admin/default/newcustomer"}
         />
         <Widget
           icon={<MdMoney className="h-6 w-6" />}
           title={"Loan Book"}
           subtitle={"Add Loan"}
-          linkTo={"/admin/details/loans"}
+          linkTo={"/admin/default/loans"}
         />
         <Widget
           icon={<MdAdUnits className="h-7 w-7" />}
           title={"Entry Book"}
           subtitle={"New Entry"}
-          linkTo={""}
+          linkTo={"/admin/default/newtransaction"}
         />
         <Widget
           icon={<MdBook className="h-6 w-6" />}
           title={"Daily Book"}
           subtitle={"Today's Entries"}
-          linkTo={""}
+          linkTo={"/admin/default/khata"}
         />
         <Widget
           icon={<MdBook className="h-7 w-7" />}
           title={"Monthly Books"}
           subtitle={"Monthly Entries"}
-          linkTo={""}
+          linkTo={"/admin/default/khata"}
         />
         <Widget
           icon={<MdAdd className="h-6 w-6" />}
